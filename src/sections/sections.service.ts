@@ -19,6 +19,7 @@ export class SectionsService {
     return this.sectionRepository.save(section);
   }
 
+  // Not finished
   async addSectionToStudent(studentId: number, sectionId: number): Promise<void> {
     const student = await this.studentRepository.findOne({ where: { id: studentId }, relations: ['sections'] });
     const section = await this.sectionRepository.findOne({ where: { id: sectionId } });
