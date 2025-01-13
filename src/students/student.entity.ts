@@ -1,5 +1,5 @@
 import { Section } from 'src/sections/section.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, Index } from 'typeorm';
 
 @Entity('students')
 export class Student {
@@ -10,6 +10,7 @@ export class Student {
   name: string;
 
   @Column()
+  @Index({ unique: true })
   email: string;
 
   @ManyToMany(() => Section, section => section.students)

@@ -15,10 +15,10 @@ export class Section {
   @Column('text', { array: true })
   days: string[]; // ['M', 'W', 'F']
 
-  @Column({ name: 'start_time' })
+  @Column({ name: 'start_time', type: 'time' })
   startTime: string; // 08:00
 
-  @Column({ name: 'end_time' })
+  @Column({ name: 'end_time', type: 'time' })
   endTime: string;
 
   @ManyToOne(() => Teacher, teacher => teacher.sections)
